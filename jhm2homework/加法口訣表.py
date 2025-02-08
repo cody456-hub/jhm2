@@ -1,18 +1,14 @@
-Sizea = int(input("Input Addition Table Size smaller 10: "))
-a = Sizea
-print("Addition Table")
+size = int(input("Input Addition Table Size smaller 10:"))
 
 print("------------------------------------------------------------")
 
-
-for i in range (1 , a + 1):
-    for j in (1 , a + 1):
-        cs = i + j
-
-        if cs < 10:
-            print(f'{i} + {j} = {cs}', end ='  ')
-        else: 
-            print(f'{i} + {j} = {cs}', end =' ')   
-    print( )
+for i in range(1, size + 1 ):
+    for j in range(1, size + 1 ):
+        sum = i + j        
+        if sum < 10 :
+            print(f"{i} + {j} = {sum}  ", end=" ")
+        else:
+            print(f"{i} + {j} = {sum} ", end=" ")
+    print()
 
 print("------------------------------------------------------------")
