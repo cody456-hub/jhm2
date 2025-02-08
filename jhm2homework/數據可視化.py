@@ -2,8 +2,6 @@ import pandas as pd
 import matplotlib.pyplot as plt 
 
 
-import pandas as pd
-
 data = {
 'Month_a': ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
 'Sales_a': [380, 400, 660, 800, 900, 1200, 1600, 2200, 1500, 1100, 600, 250]
