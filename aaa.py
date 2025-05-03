@@ -1,18 +1,21 @@
-import yfinance as yf # type: ignore
+import requests
+from bs4 import BeautifulSoup
+import pandas as pd
 
-# 設定股票代碼
-ticker = "APY"
+# Barchart 的 APY 歷史數據頁面
+url = "https://www.barchart.com/stocks/quotes/APY/historical-data"
 
-# 設定時間範圍
-start_date = "2020-01-01"
-end_date = "2025-04-25"
+# 發送請求
+response = requests.get(url)
+soup = BeautifulSoup(response.text, "html.parser")
 
-# 下載數據
-df = yf.download(ticker, start=start_date, end=end_date)
+# 找到數據表（需要查看網頁結構以確保準確抓取）
+table = soup.find("table")
 
-# 存為 CSV 文件
-csv_filename = f"{ticker}_stock_data.csv"
-df.to_csv(csv_filename)
-
-print(f"{ticker} 的數據已保存到 {csv_filename}")
-
+# 如果找到表格，就轉換成 CSV（這部分需要根據網頁的 HTML 調整）
+if table:
+    df = pd.read_html(str(table))[0]
+    df.to_csv("APY_stock_data.csv", index=False)
+    print("APY 的數據已保存到 APY_stock_data.csv")
+else:
+    print("未找到 APY 的股票數據，請確認網站結構！")
