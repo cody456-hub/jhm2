@@ -1,4 +1,4 @@
-import yfinance as yf
+import yfinance as yf # type: ignore
 
 # 設定股票代碼
 ticker = "APY"
